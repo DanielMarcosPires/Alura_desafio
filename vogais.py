@@ -1,16 +1,12 @@
+from collections import Counter
 import re
-
 def leitor_de_vogais(entrada):
-    regex = re.findall(r"[aeiouAEIOUáéíóúÁÉÍÓÚâêôÂÊÔãõÃÕ]",entrada)
+    lista = []
+    regex = re.findall(r"[aeiouAEIOUáéíóúÁÉÍÓÚâêôÂÊÔãõÃÕ]",entrada.lower())
 
-    
+    print(f"Quantidade de cada vogal {dict(Counter(regex))}")
+    print(f"Quantidade total de vogais: {len(regex)}")
 
-    return regex
 
-texto = input("Escreva um texto:\n> ")
-vogais = leitor_de_vogais(texto)
-qnt_vogais = len(vogais)
-
-print(f"{texto}\n")
-print(f"Todos os vogais:\n{vogais}")
-print(f"Quantidade de vogais: {qnt_vogais}")
+texto = input("Digite um texto:\n > ")
+qnt_vogais=leitor_de_vogais(texto)
